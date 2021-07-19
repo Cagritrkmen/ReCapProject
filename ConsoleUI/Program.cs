@@ -14,7 +14,7 @@ namespace ConsoleUI
             //AddingCarTest();
             //GetCarsByBrandIdTest();
             //GetCarByIdTest();
-            GetCarDetailsTest();
+            //GetCarDetailsTest();
             //AddingBrandTest();
             //DeletingBrandTest();
             //UpdatingBrandTest();
@@ -23,6 +23,16 @@ namespace ConsoleUI
             //UpdatingColorTest();
             //DeletingColorTest();
             //AddingColorTest();
+            UserManager userManager = new UserManager(new EfUserDal());
+            var result = userManager.Add(new User { FirstName = "Ahmet", LastName = "Türkmen", Email = "ahmetturkmen_33@hotmail.com", Password = "123456" });
+            if (result.Success == true)
+            {
+                Console.WriteLine(result.Message);
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
 
         }
 
