@@ -23,8 +23,38 @@ namespace ConsoleUI
             //UpdatingColorTest();
             //DeletingColorTest();
             //AddingColorTest();
+            //AddingUser();
+            //GetUserById();
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+            var result = brandManager.GetById(1);
+            if (result.Success)
+            {
+                Console.WriteLine(result.Data.BrandName);
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void GetUserById()
+        {
             UserManager userManager = new UserManager(new EfUserDal());
-            var result = userManager.Add(new User { FirstName = "Ahmet", LastName = "Türkmen", Email = "ahmetturkmen_33@hotmail.com", Password = "123456" });
+            var result = userManager.GetById(1);
+            if (result.Success)
+            {
+                Console.WriteLine(result.Data.FirstName);
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void AddingUser()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            var result = userManager.Add(new User { FirstName = "Kağan", LastName = "Türkmen", Email = "kaganturkmen_33@hotmail.com", Password = "123efsane26" });
             if (result.Success == true)
             {
                 Console.WriteLine(result.Message);
@@ -33,7 +63,6 @@ namespace ConsoleUI
             {
                 Console.WriteLine(result.Message);
             }
-
         }
 
         private static void AddingCarTest()
@@ -87,8 +116,7 @@ namespace ConsoleUI
                 foreach (var brand in result.Data)
                 {
                     Console.WriteLine(brand.BrandId + "----" + brand.BrandName);
-                }
-            }
+                }            }
             else
             {
                 Console.WriteLine(result.Message);

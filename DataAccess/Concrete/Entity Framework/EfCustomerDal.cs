@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataAccess.Concrete
+namespace DataAccess.Concrete.Entity_Framework
 {
     public class EfCustomerDal:EfEntityRepositoryBase<Customer,ReCapContext>,ICustomerDal
     {
