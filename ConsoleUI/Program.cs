@@ -67,7 +67,7 @@ namespace ConsoleUI
 
         private static void AddingCarTest()
         {
-            CarManager carManager = new CarManager(new EfCarDal());
+            CarManager carManager = new CarManager(new EfCarDal(), new BrandManager(new EfBrandDal()));
             var result = carManager.Add(new Car { BrandId = 8, CarName = "Astra", ColorId = 8, DailyPrice = 380, ModelYear = 2014, Description = "Manuel" });
             if (result.Success == true)
             {
@@ -139,7 +139,7 @@ namespace ConsoleUI
 
         private static void GetCarsByBrandIdTest()
         {
-            CarManager carManager = new CarManager(new EfCarDal());
+            CarManager carManager = new CarManager(new EfCarDal(), new BrandManager(new EfBrandDal()));
             var result = carManager.GetCarsByBrandId(2);
             foreach (var car in result.Data)
             {
@@ -150,7 +150,7 @@ namespace ConsoleUI
 
         private static void GetCarByIdTest()
         {
-            CarManager carManager = new CarManager(new EfCarDal());
+            CarManager carManager = new CarManager(new EfCarDal(), new BrandManager(new EfBrandDal()));
             var result = carManager.GetbyId(3);
             if (result.Success == true)
             {
@@ -220,7 +220,7 @@ namespace ConsoleUI
 
         private static void GetCarDetailsTest()
         {
-            CarManager carManager = new CarManager(new EfCarDal());
+            CarManager carManager = new CarManager(new EfCarDal(), new BrandManager(new EfBrandDal()));
             var result = carManager.GetCarDetails();
             if (result.Success == true)
             {

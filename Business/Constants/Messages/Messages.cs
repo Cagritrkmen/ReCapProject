@@ -36,9 +36,15 @@ namespace Business.Constants.Messages
         public static string RentalDeleted = "Kiralama silindi";
         public static string RentalUpdated = "Kiralama bilgileri güncellendi";
         public static string RentalsListed = "Kiralamalar listelendi";
-
+        public static string CarImageAdded = "Araba resmi eklendi";
+        public static string CarImageDeleted = "Araba resmi silindi";
+        public static string CarImageUpdated = "Araba resmi güncellendi";
+        public static string CarImagesListed = "Araba resimleri listelendi";
+        public static string CarCountOfBrandError = "Bir markada en fazla 15 araba olabilir";
+        public static string CarNameAlreadyExists = "Bu isimde zaten bir araba var";
+        public static string BrandLimitExceded = "Marka limiti aşıldı. Marka sayısı 10'dan çok olamaz";
 
         public static string MaintenanceTime = "Sistem bakımda";
-        
+        public static string CarImageLimitExceeded="Araba resmi limiti aşıldı";
     }
 }
