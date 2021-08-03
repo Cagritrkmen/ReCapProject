@@ -43,8 +43,9 @@ namespace Business.Constants.Messages
         public static string CarCountOfBrandError = "Bir markada en fazla 15 araba olabilir";
         public static string CarNameAlreadyExists = "Bu isimde zaten bir araba var";
         public static string BrandLimitExceded = "Marka limiti aşıldı. Marka sayısı 10'dan çok olamaz";
-
+        public static string CarImageNotFound="Araba resmi bulunamadı";
         public static string MaintenanceTime = "Sistem bakımda";
         public static string CarImageLimitExceeded="Araba resmi limiti aşıldı";
+        
     }
 }
