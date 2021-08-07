@@ -3,12 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Concrete
+namespace Core.Entities.Concrete
 {
-    public class Customer:IEntity
+    public class OperationClaim:IEntity
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public string CompanyName { get; set; }
+        public string Name { get; set; }
     }
 }

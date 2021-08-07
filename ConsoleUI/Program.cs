@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Entities.Concrete;
 using Business.Concrete;
 using DataAccess.Concrete;
 using DataAccess.Concrete.Entity_Framework;
@@ -51,19 +52,19 @@ namespace ConsoleUI
             }
         }
 
-        private static void AddingUser()
-        {
-            UserManager userManager = new UserManager(new EfUserDal());
-            var result = userManager.Add(new User { FirstName = "Kağan", LastName = "Türkmen", Email = "kaganturkmen_33@hotmail.com", Password = "123efsane26" });
-            if (result.Success == true)
-            {
-                Console.WriteLine(result.Message);
-            }
-            else
-            {
-                Console.WriteLine(result.Message);
-            }
-        }
+        //private static void AddingUser()
+        //{
+        //    UserManager userManager = new UserManager(new EfUserDal());
+        //    var result = userManager.Add(new User { FirstName = "Kağan", LastName = "Türkmen", Email = "kaganturkmen_33@hotmail.com", Password = "123efsane26" });
+        //    if (result.Success == true)
+        //    {
+        //        Console.WriteLine(result.Message);
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(result.Message);
+        //    }
+        //}
 
         private static void AddingCarTest()
         {

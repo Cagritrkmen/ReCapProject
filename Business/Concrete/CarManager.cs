@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants.Messages;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac;
@@ -24,6 +25,7 @@ namespace Business.Concrete
             _brandService = brandService;
 ;
         }
+        [SecuredOperation("admin,user")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
@@ -45,7 +47,7 @@ namespace Business.Concrete
             _carDal.Delete(car);
             return new SuccessResult(Messages.CarDeleted);
         }
-
+        [SecuredOperation("admin,user")]
         public IDataResult<List<Car>> GetAll()
         {
             

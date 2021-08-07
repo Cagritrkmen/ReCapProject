@@ -46,6 +46,13 @@ namespace Business.Constants.Messages
         public static string CarImageNotFound="Araba resmi bulunamadı";
         public static string MaintenanceTime = "Sistem bakımda";
         public static string CarImageLimitExceeded="Araba resmi limiti aşıldı";
-        
+        public static string AuthorizationDenied = "Yetkilendirmeniz yok";
+        public static string UserRegistered = "Kayıt olundu";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string PasswordError = "Yanlış parola";
+        public static string SuccessfulLogin = "Başarıyla giriş yapıldı";
+        public static string UserAlreadyExists = "Kullanıcı zaten mevcut";
+        public static string AccessTokenCreated = "Token oluşturuldu";
+
     }
 }
