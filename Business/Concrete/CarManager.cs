@@ -2,7 +2,8 @@
 using Business.BusinessAspects.Autofac;
 using Business.Constants.Messages;
 using Business.ValidationRules.FluentValidation;
-using Core.Aspects.Autofac;
+using Core.Aspects.Autofac.Validation;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -12,6 +13,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Core.Aspects.Autofac.Transaction;
+using Core.Aspects.Autofac.Performance;
 
 namespace Business.Concrete
 {
@@ -25,6 +28,9 @@ namespace Business.Concrete
             _brandService = brandService;
 ;
         }
+        [PerformanceAspect(5)]
+        [TransactionScopeAspect]
+        [CacheRemoveAspect("product.get")]
         [SecuredOperation("admin,user")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
@@ -47,6 +53,7 @@ namespace Business.Concrete
             _carDal.Delete(car);
             return new SuccessResult(Messages.CarDeleted);
         }
+        [CacheAspect]
         [SecuredOperation("admin,user")]
         public IDataResult<List<Car>> GetAll()
         {

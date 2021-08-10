@@ -1,7 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants.Messages;
 using Business.ValidationRules.FluentValidation;
-using Core.Aspects.Autofac;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
