@@ -7,6 +7,7 @@ using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.Entity_Framework;
+using DataAccess.Concrete.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -35,6 +36,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfUserDal>().As<IUserDal>();
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+            builder.RegisterType<PaymentManager>().As<IPaymentService>().SingleInstance();
+            builder.RegisterType<EfPaymentDal>().As<IPaymentDal>().SingleInstance();
+            
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 

@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Business.Concrete
@@ -46,7 +47,7 @@ namespace Business.Concrete
 
         public IResult Delete(CarImage carImage)
         {
-            var image = _carImageDal.Get(c => c.Id == carImage.Id);
+            var image = _carImageDal.Get(c => c.CarImageId == carImage.CarImageId);
             if (image != null)
             {
                 FileHelper.Delete(image.ImagePath);
@@ -56,19 +57,19 @@ namespace Business.Concrete
             return new ErrorResult(Messages.CarImageNotFound);
         }
 
-        public IDataResult<List<CarImage>> GetAll()
+        public IDataResult<List<CarImage>> GetAll(Expression<Func<CarImage, bool>> filter = null)
         {
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(), Messages.CarImagesListed);
         }
 
         public IDataResult<CarImage> GetById(int carImageId)
         {
-            return new SuccessDataResult<CarImage>(_carImageDal.Get(c => c.Id == carImageId));
+            return new SuccessDataResult<CarImage>(_carImageDal.Get(c => c.CarImageId == carImageId));
         }
 
         public IResult Update(IFormFile file, CarImage carImage)
         {
-            var image = _carImageDal.Get(c => c.Id == carImage.Id);
+            var image = _carImageDal.Get(c => c.CarImageId == carImage.CarImageId);
             if (image == null)
             {
                 return new ErrorResult(Messages.CarImageNotFound);

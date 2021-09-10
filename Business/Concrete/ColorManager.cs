@@ -21,30 +21,20 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ColorValidator))]
         public IResult Add(Color color)
         {
-            if (color.ColorName.Length <= 2)
-            {
-                return new ErrorResult(Messages.InvaidColorName);
-            }
+           
             _colorDal.Add(color);
             return new SuccessResult(Messages.BrandAdded);
         }
 
         public IResult Delete(Color color)
         {
-            if (DateTime.Now.Hour == 19)
-            {
-                return new ErrorResult(Messages.MaintenanceTime);
-            }
             _colorDal.Delete(color);
             return new SuccessResult(Messages.ColorDeleted);
         }
 
         public IDataResult<List<Color>> GetAll()
         {
-            if (DateTime.Now.Hour == 17)
-            {
-                return new ErrorDataResult<List<Color>>(Messages.MaintenanceTime);
-            }
+            
             return new SuccessDataResult<List<Color>>(_colorDal.GetAll(), Messages.ColorsListed);
         }
 

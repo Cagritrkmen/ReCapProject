@@ -54,7 +54,16 @@ namespace DataAccess.Concrete
            return _cars.Where(c => c.Id == id).ToList();
         }
 
-        
+        public List<CarDetailsDto> GetCarDetails(Expression<Func<CarDetailsDto, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public CarDetailsDto GetCarDetailsByCarId(Expression<Func<CarDetailsDto, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Car car)
         {
             Car carToUpdate= _cars.SingleOrDefault(c => c.Id == car.Id);
@@ -63,11 +72,6 @@ namespace DataAccess.Concrete
             carToUpdate.DailyPrice = car.DailyPrice;
             carToUpdate.Description = car.Description;
             carToUpdate.ModelYear = car.ModelYear;
-        }
-
-        List<CarDetailsDto> ICarDal.GetCarDetails()
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -53,6 +53,12 @@ namespace Business.Constants.Messages
         public static string SuccessfulLogin = "Başarıyla giriş yapıldı";
         public static string UserAlreadyExists = "Kullanıcı zaten mevcut";
         public static string AccessTokenCreated = "Token oluşturuldu";
-
+        public static string RentalDetailsListed="Kiralama detayları listelendi";
+        public static string RentalAdded = "Araba kiralama işlemi başarıyla gerçekleşti.";
+        public static string RentalDelivered = "Araba teslim etme işlemi başarıyla gerçekleşti.";
+        public static string RentalReturnDateIsNull = "Araba henüz teslim edilmemiştir, kiralanamaz.";
+        public static string RentalReturnDateIsNotNull = "Araba zaten teslim edilmiştir, tekrar teslim işlemi yapılamaz.";
+        public static string RentalDateOk = "Araba istenen tarihlerde işlenebilir.";
+        public static string PaymentAdded = "Ödeme aracı eklendi.";
     }
 }
